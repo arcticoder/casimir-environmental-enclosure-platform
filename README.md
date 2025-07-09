@@ -1,5 +1,13 @@
 # Casimir Environmental Enclosure Platform v2.0
 
+## Related Repositories
+
+- [energy](https://github.com/arcticoder/energy): Central hub for all energy, quantum, and Casimir research. This environmental enclosure platform is integrated with the energy framework for digital twin, UQ, and system-level validation.
+- [casimir-nanopositioning-platform](https://github.com/arcticoder/casimir-nanopositioning-platform): Provides precision positioning and digital twin synchronization for environmental control experiments.
+- [casimir-ultra-smooth-fabrication-platform](https://github.com/arcticoder/casimir-ultra-smooth-fabrication-platform): Supplies ultra-smooth fabrication and quality control for components used in environmental enclosures.
+
+All repositories are part of the [arcticoder](https://github.com/arcticoder) ecosystem and link back to the energy framework for unified documentation and integration.
+
 **Advanced Digital Twin for Ultra-High Vacuum, Temperature Control, and Vibration Isolation**
 
 A revolutionary environmental control platform with enhanced digital twin capabilities for Casimir-driven applications and precision quantum operations. This repository provides the foundation for ultra-high vacuum (UHV) systems with comprehensive multi-physics modeling, advanced uncertainty quantification, and real-time digital twin synchronization.
