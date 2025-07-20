@@ -125,3 +125,5 @@ __pycache__/
 *.pyo
 
 .github/instructions/copilot-instructions.md
+
+.github/
