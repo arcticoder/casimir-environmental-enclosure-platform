@@ -123,3 +123,5 @@ update-progress.txt
 __pycache__/
 *.pyc
 *.pyo
+
+.github/instructions/copilot-instructions.md
