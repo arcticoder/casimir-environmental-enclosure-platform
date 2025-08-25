@@ -21,13 +21,16 @@ This repository describes research-stage work and prototype implementations expl
 - **Digital Twin Fidelity**: Reported high-fidelity model fits for select datasets (see `docs/` for validation details)
 - **Uncertainty Bounds**: Reported uncertainty summaries are conditional on tested configurations; consult `docs/UQ-notes.md` for provenance and confidence calculations
 
-### **Digital Twin Framework v2.0 - Revolutionary Enhancements**
-- ✅ **Enhanced Multi-Physics Coupling**: Physics-based cross-domain interactions
-- ✅ **Advanced Kalman Filtering**: Adaptive UKF with sigma point optimization
-- ✅ **Enhanced Uncertainty Quantification**: Second-order Sobol analysis with Gelman-Rubin diagnostics
-- ✅ **Advanced H∞ Robust Control**: Quantified stability margins >50%
-- ✅ **Enhanced Model Predictive Control**: Probabilistic constraint tightening (99.7% confidence)
-- ✅ **Multi-Domain Fidelity Assessment**: Temporal correlation analysis
+### Digital Twin Framework v2.0 — Reported Enhancements (prototype)
+
+Notable features reported in prototype implementations and simulation studies. These items summarize research-stage capabilities and are provided for reproducibility and discussion; they are not production guarantees and should be interpreted in the context of the validation artifacts in `docs/`.
+
+- **Enhanced Multi-Physics Coupling**: Physics-based cross-domain interactions (reported in prototype models)
+- **Adaptive Kalman Filtering**: Adaptive UKF variants with sigma-point tuning (reported improvements depend on tuning and datasets)
+- **Uncertainty Quantification Methods**: Second-order Sobol analysis with convergence diagnostics (provisional analysis workflows)
+- **H∞ Robust Control Methods**: Robust control designs evaluated in simulation and prototype setups (results conditional on weighting and model assumptions)
+- **Model Predictive Control Enhancements**: Probabilistic constraint-handling strategies reported in experiments (performance depends on model fidelity and UQ)
+- **Multi-Domain Fidelity Assessments**: Temporal correlation and cross-domain weighting studies (reported for specific datasets)
 
 ## Capabilities (research-stage descriptions)
 
@@ -89,7 +92,7 @@ R²_enhanced = 1 - Σ(w_j × (y_i,j - ŷ_i,j)²) / Σ(w_j × (y_i,j - ȳ_j)²)
 - **Temporal correlation analysis**: ξ_temporal(τ) = E[(Y(t) - μ)(Y(t+τ) - μ)] / σ²
 - **Real-time fidelity monitoring** with >99.5% accuracy
 
-## 🏗️ **Enhanced System Architecture**
+## Enhanced System Architecture (overview)
 
 ### **Digital Twin Core Components**
 ```python
@@ -118,18 +121,20 @@ from src.digital_twin.digital_twin_core import DigitalTwinCore
 - **Vibration Isolation**: Multi-rate control with H∞ optimization and robustness margins
 - **Cross-System Integration**: 98.7% compatibility with quantum positioning systems
 
-## 📊 **Enhanced Performance Validation**
+## Performance Validation (selected, preliminary)
 
-### **✅ ALL CRITICAL UQ CONCERNS RESOLVED**
+### Selected UQ summaries (preliminary)
 
-| System Component | Target Performance | Achieved Performance | Confidence Level |
-|------------------|-------------------|---------------------|------------------|
-| **Multi-Physics Coupling** | Stable coupling matrix | Condition number <50 | 99.9% |
-| **Kalman Filter** | Positive definite covariance | Joseph form guaranteed | 100% |
-| **Sobol Analysis** | Reliable sensitivity indices | R̂ < 1.01 convergence | 99.7% |
-| **H∞ Control** | >50% robustness margins | 60° phase, 6 dB gain | 100% |
-| **MPC Control** | 99.7% constraint satisfaction | Adaptive γ tightening | 99.7% |
-| **Digital Twin Fidelity** | R² ≥ 0.995 | R² = 0.997 ± 0.002 | 99.5% |
+The table below lists selected reported outcomes from simulation and prototype experiments. These entries are preliminary summaries and are provided for traceability; consult `docs/UQ-notes.md` and `docs/benchmarks.md` for raw data, test conditions, and analysis scripts.
+
+| System Component | Target Performance (reported) | Reported Outcome | Notes |
+|------------------|-------------------------------|------------------|-------|
+| Multi-Physics Coupling | Stable coupling matrix (target) | Condition number <50 (reported in select tests) | Prototype results; dataset-dependent |
+| Kalman Filter | Positive definite covariance (design) | Joseph-form updates used in implementations (reported) | Numerical stability techniques reported; see `docs/` |
+| Sobol Analysis | Reliable sensitivity indices | Convergence indicators reported (R̂ values near targets) | Analysis depends on sample design and model assumptions |
+| H∞ Control | Robustness margins (design target) | Robust control synthesis reported in prototypes | Results conditional on weighting functions and models |
+| MPC Control | Probabilistic constraint satisfaction | Adaptive tightening strategies reported | Confidence claims are conditional on UQ and test fixtures |
+| Digital Twin Fidelity | High R² in fitted datasets | Reported R² ≈ 0.997 ± 0.002 for select datasets | Performance is dataset- and model-dependent |
 
 ### **Real-Time Performance Metrics**
 - **Update Rate**: 120 Hz ± 15 Hz (target: 100 Hz)
@@ -137,13 +142,13 @@ from src.digital_twin.digital_twin_core import DigitalTwinCore
 - **Memory Usage**: 2.1 GB ± 0.3 GB for full digital twin
 - **Synchronization Latency**: <1 ms digital-physical sync
 
-## 🎯 **Mathematical Framework Validation**
+## Mathematical Framework Validation (reported estimates)
 
 ### **Enhanced Gelman-Rubin Convergence**
 ```
 R̂_enhanced = √[(N-1)/N + (1/N) × (B/W) × (1 + 2√(B/W)/√N)]
 ```
-**Achieved**: R̂ = 1.008 ± 0.003 (target: <1.01)
+**Reported**: R̂ ≈ 1.008 ± 0.003 (prototype estimate; consult `docs/UQ-notes.md` for chain diagnostics and convergence checks)
 
 ### **Multi-Domain State Evolution**
 ```
@@ -162,10 +167,10 @@ dE/dt = -(E/(μ₀×εᵣ×ε₀)) + coupling_mechanical + coupling_thermal
 ## Development Status, Scope, Validation & Limitations
 
 - Scope: Prototype implementations, simulation studies, and digital-twin experiments. This repository documents model development and prototype demonstrations rather than validated production systems.
-- Validation: Select validation artifacts and UQ summaries are referenced from `docs/`. Where specific claims are made, they are supported by simulation or prototype test artifacts — consult `docs/` for datasets, scripts, and CI results where present.
+- Validation: Select validation artifacts and UQ summaries are referenced from `docs/`. Where specific claims are made, they are supported by simulation or prototype test artifacts — consult `docs/UQ-notes.md` and `docs/benchmarks.md` for provenance, scripts, and CI outputs when available.
 - Limitations: Reported metrics are conditional on test fixtures, solver parameters, environmental control, and calibration. Claims about readiness, crewed operation, or production deployment require formal V&V, independent review, and certifications.
 
-If you maintain or extend this repository, please add links to raw data, benchmark scripts, and UQ analysis used to support specific claims.
+If you maintain or extend this repository, please add links to raw data, benchmark scripts, and UQ analysis used to support specific claims; include clear test conditions and provenance in `docs/`.
 
 ## Applications and Notes
 
@@ -181,7 +186,7 @@ This project is released into the public domain under the [Unlicense](https://un
 
 ---
 
-*The Casimir Environmental Enclosure Platform v2.0 represents a revolutionary breakthrough in precision environmental control, providing the foundation for next-generation quantum technologies and ultra-precision manufacturing applications.*
+*This repository documents research-stage work and prototype demonstrations exploring precision environmental control. Descriptions of capabilities and numerical summaries are preliminary — they require formal validation, independent review, and certification before being treated as engineering specifications or deployment-ready systems.*
 
 ---
 
@@ -190,17 +195,18 @@ This project is released into the public domain under the [Unlicense](https://un
 Sections that describe crewed life-support integration or mission-readiness are illustrative and conceptual. They summarize research ideas or integration scenarios used in simulations; they do not indicate operational certification or deployment readiness.
 
 Any claims about life-support readiness, crew capacity, mission duration, or safety certification must be substantiated through engineering development, independent testing, and regulatory approval before operational use.
+_Illustrative example only — not a validated life-support specification. Treat parameters below as simulation placeholders requiring engineering V&V._
+
 ```python
 class CrewVesselEnvironmentalControl:
-    """
-    Environmental control system for crew vessel operations
-    Integration with enhanced-simulation-hardware-abstraction-framework
-    """
+    """Illustrative example for simulation and integration experiments only."""
     def __init__(self):
+        # Example / placeholder values for simulation scenarios. Do not treat these
+        # as engineering specifications or validated life-support capacities.
         self.crew_capacity = 100
         self.atmospheric_recycling_efficiency = 0.999
-        self.oxygen_generation_capacity = 80000  # L/day
-        self.co2_scrubbing_capacity = 64000      # L/day
+        self.oxygen_generation_capacity = 80000  # L/day (example)
+        self.co2_scrubbing_capacity = 64000      # L/day (example)
         self.casimir_enhanced_filtration = True
         self.lqg_polymer_enhancement = True
         self.triple_redundancy = True
