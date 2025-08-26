@@ -15,10 +15,10 @@ This repository describes research-stage work and prototype implementations expl
 ## Technical Specifications (reported / conditional)
 
 ### Environmental Control Performance — reported targets and prototype results
-- **Ultra-High Vacuum**: Target ≤ 10⁻⁶ Pa in controlled test conditions (see `docs/` for measurement conditions)
-- **Temperature Stability**: Prototype tests report ±0.01 K precision under specific compensation schemes; performance depends on materials and control tuning
-- **Vibration Control**: Demonstrated <1 nm RMS (0.1–100 Hz) in lab setups with H∞-style controllers; results are environment-dependent
-- **Digital Twin Fidelity**: Reported high-fidelity model fits for select datasets (see `docs/` for validation details)
+- **Ultra-High Vacuum**: Target on the order of 10⁻⁶ Pa in controlled test conditions (see `docs/` for measurement conditions and raw data)
+- **Temperature Stability**: Prototype tests report on the order of ±0.01 K under specific compensation schemes; actual performance depends on materials, control tuning, and test fixtures
+- **Vibration Control**: Reported <1 nm RMS (0.1–100 Hz) in select lab setups with carefully tuned H∞-style controllers; results are environment- and configuration-dependent
+- **Digital Twin Fidelity**: Reported model fits for select datasets (see `docs/` for validation details and fit diagnostics)
 - **Uncertainty Bounds**: Reported uncertainty summaries are conditional on tested configurations; consult `docs/UQ-notes.md` for provenance and confidence calculations
 
 ### Digital Twin Framework v2.0 — Reported Enhancements (prototype)
@@ -119,7 +119,7 @@ from src.digital_twin.digital_twin_core import DigitalTwinCore
 - **Ultra-High Vacuum**: Enhanced Casimir pressure modeling with material corrections
 - **Thermal Management**: Multi-material compensation with nonlinear expansion modeling
 - **Vibration Isolation**: Multi-rate control with H∞ optimization and robustness margins
-- **Cross-System Integration**: 98.7% compatibility with quantum positioning systems
+- **Cross-System Integration**: Reported ~98.7% compatibility with quantum positioning systems in select integration tests
 
 ## Performance Validation (selected, preliminary)
 
@@ -137,10 +137,10 @@ The table below lists selected reported outcomes from simulation and prototype e
 | Digital Twin Fidelity | High R² in fitted datasets | Reported R² ≈ 0.997 ± 0.002 for select datasets | Performance is dataset- and model-dependent |
 
 ### **Real-Time Performance Metrics**
-- **Update Rate**: 120 Hz ± 15 Hz (target: 100 Hz)
-- **Computation Time**: 8.3 ms ± 1.2 ms per cycle
-- **Memory Usage**: 2.1 GB ± 0.3 GB for full digital twin
-- **Synchronization Latency**: <1 ms digital-physical sync
+- **Update Rate**: Reported ~120 Hz ± 15 Hz in evaluated setups (target: 100 Hz)
+- **Computation Time**: Reported ≈8.3 ms ± 1.2 ms per cycle in tested configurations
+- **Memory Usage**: ~2.1 GB ± 0.3 GB for the full digital twin in our experiments
+- **Synchronization Latency**: Reported <1 ms digital-physical sync in selected tests
 
 ## Mathematical Framework Validation (reported estimates)
 
