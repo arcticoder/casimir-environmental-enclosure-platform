@@ -90,7 +90,7 @@ R²_enhanced = 1 - Σ(w_j × (y_i,j - ŷ_i,j)²) / Σ(w_j × (y_i,j - ȳ_j)²)
 ```
 - **Domain weights**: w_mechanical = 0.4, w_thermal = 0.3, w_electromagnetic = 0.2, w_quantum = 0.1
 - **Temporal correlation analysis**: ξ_temporal(τ) = E[(Y(t) - μ)(Y(t+τ) - μ)] / σ²
-- **Real-time fidelity monitoring** with >99.5% accuracy
+-- **Real-time fidelity monitoring** reported >99.5% accuracy for evaluated datasets (dataset- and model-dependent)
 
 ## Enhanced System Architecture (overview)
 
@@ -134,7 +134,7 @@ The table below lists selected reported outcomes from simulation and prototype e
 | Sobol Analysis | Reliable sensitivity indices | Convergence indicators reported (R̂ values near targets) | Analysis depends on sample design and model assumptions |
 | H∞ Control | Robustness margins (design target) | Robust control synthesis reported in prototypes | Results conditional on weighting functions and models |
 | MPC Control | Probabilistic constraint satisfaction | Adaptive tightening strategies reported | Confidence claims are conditional on UQ and test fixtures |
-| Digital Twin Fidelity | High R² in fitted datasets | Reported R² ≈ 0.997 ± 0.002 for select datasets | Performance is dataset- and model-dependent |
+| Digital Twin Fidelity | High R² in fitted datasets | Reported R² ≈ 0.997 ± 0.002 for select datasets (reported) | Performance is dataset- and model-dependent |
 
 ### **Real-Time Performance Metrics**
 - **Update Rate**: Reported ~120 Hz ± 15 Hz in evaluated setups (target: 100 Hz)
@@ -148,7 +148,7 @@ The table below lists selected reported outcomes from simulation and prototype e
 ```
 R̂_enhanced = √[(N-1)/N + (1/N) × (B/W) × (1 + 2√(B/W)/√N)]
 ```
-**Reported**: R̂ ≈ 1.008 ± 0.003 (prototype estimate; consult `docs/UQ-notes.md` for chain diagnostics and convergence checks)
+**Reported**: R̂ ≈ 1.008 ± 0.003 for select chains/datasets (prototype estimate; consult `docs/UQ-notes.md` for chain diagnostics and convergence checks)
 
 ### **Multi-Domain State Evolution**
 ```
@@ -160,7 +160,7 @@ dE/dt = -(E/(μ₀×εᵣ×ε₀)) + coupling_mechanical + coupling_thermal
 **Validation**: Cross-domain coupling verified with r = 0.65 ± 0.12 correlation
 
 ### **Uncertainty Quantification Enhancement**
-- **Coverage Probability**: 99.7% ± 0.3% (target: 99.7%)
+- **Coverage Probability**: 99.7% ± 0.3% (reported for specific analyses; see `docs/UQ-notes.md` for test conditions and provenance)
 - **Bootstrap Confidence**: 95% intervals validated against experimental data
 - **Second-Order Sobol**: Complete interaction analysis for d ≤ 20 dimensions
 
