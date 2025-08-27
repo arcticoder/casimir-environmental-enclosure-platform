@@ -136,11 +136,11 @@ The table below lists selected reported outcomes from simulation and prototype e
 | MPC Control | Probabilistic constraint satisfaction | Adaptive tightening strategies reported | Confidence claims are conditional on UQ and test fixtures |
 | Digital Twin Fidelity | High R² in fitted datasets | Reported R² ≈ 0.997 ± 0.002 for select datasets (reported) | Performance is dataset- and model-dependent |
 
-### **Real-Time Performance Metrics**
-- **Update Rate**: Reported ~120 Hz ± 15 Hz in evaluated setups (target: 100 Hz)
-- **Computation Time**: Reported ≈8.3 ms ± 1.2 ms per cycle in tested configurations
-- **Memory Usage**: ~2.1 GB ± 0.3 GB for the full digital twin in our experiments
-- **Synchronization Latency**: Reported <1 ms digital-physical sync in selected tests
+### **Real-Time Performance Metrics (reported / conditional)**
+- **Update Rate**: Reported ~120 Hz ± 15 Hz in evaluated setups (target: 100 Hz); observed rates depend on hardware and test conditions
+- **Computation Time**: Reported ≈8.3 ms ± 1.2 ms per cycle in tested configurations; wall-clock times vary with implementation and measurement method
+- **Memory Usage**: ~2.1 GB ± 0.3 GB for the full digital twin in our experiments; memory footprints depend on dataset sizes and enabled features
+- **Synchronization Latency**: Reported <1 ms digital-physical sync in selected tests; synchronization depends on networking stack and IO subsystems
 
 ## Mathematical Framework Validation (reported estimates)
 
@@ -166,11 +166,11 @@ dE/dt = -(E/(μ₀×εᵣ×ε₀)) + coupling_mechanical + coupling_thermal
 
 ## Development Status, Scope, Validation & Limitations
 
-- Scope: Prototype implementations, simulation studies, and digital-twin experiments. This repository documents model development and prototype demonstrations rather than validated production systems.
-- Validation: Select validation artifacts and UQ summaries are referenced from `docs/`. Where specific claims are made, they are supported by simulation or prototype test artifacts — consult `docs/UQ-notes.md` and `docs/benchmarks.md` for provenance, scripts, and CI outputs when available.
-- Limitations: Reported metrics are conditional on test fixtures, solver parameters, environmental control, and calibration. Claims about readiness, crewed operation, or production deployment require formal V&V, independent review, and certifications.
+- **Scope**: Prototype implementations, simulation studies, and digital-twin experiments. This repository documents model development and prototype demonstrations rather than validated production systems.
+- **Validation**: Select validation artifacts and UQ summaries are referenced from `docs/`. Where specific claims are made, they are supported by simulation or prototype test artifacts — consult `docs/UQ-notes.md` and `docs/benchmarks.md` for provenance, scripts, and CI outputs when available. Users should independently verify key results for new configurations and datasets.
+- **Limitations**: Reported metrics and summary statistics are conditional on test fixtures, solver parameters, environmental control, calibration, and dataset selection. Claims about readiness, crewed operation, or production deployment require formal V&V, independent review, and certifications. Confidence intervals and convergence diagnostics should be provided alongside numeric claims where possible.
 
-If you maintain or extend this repository, please add links to raw data, benchmark scripts, and UQ analysis used to support specific claims; include clear test conditions and provenance in `docs/`.
+If you maintain or extend this repository, please add explicit links to raw data, benchmark scripts, and UQ analysis used to support specific claims; include clear test conditions, input parameters, and provenance in `docs/`.
 
 ## Applications and Notes
 
