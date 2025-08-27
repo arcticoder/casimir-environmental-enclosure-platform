@@ -2,15 +2,15 @@
 
 ## Executive Summary
 
-The Casimir Environmental Enclosure Platform represents a revolutionary advancement in precision environmental control, providing ultra-high vacuum (UHV), thermal stability, and vibration isolation for quantum experiments and Casimir effect research. This system integrates advanced multi-physics digital twin capabilities with enhanced uncertainty quantification, achieving vacuum levels ≤10⁻⁶ Pa, temperature stability ±0.01 K, and vibration control <1 nm RMS across 0.1–100 Hz.
+This document describes a research-stage platform for precision environmental control aimed at supporting high-sensitivity experiments. The materials below summarize modeling results, prototype fabrication outcomes, and validation runs conducted in controlled laboratory settings. Reported performance metrics are specific to the described test configurations; differences in hardware, sensor configuration, or experimental protocol can materially affect outcomes.
 
-**Key Specifications:**
-- Vacuum performance: ≤10⁻⁶ Pa (ultra-high vacuum)
-- Temperature stability: ±0.01 K precision with multi-material compensation
-- Vibration control: <1 nm RMS (0.1–100 Hz bandwidth)
-- Multi-rate control: Fast loop (>1 kHz), Slow loop (~10 Hz), Thermal (~0.1 Hz)
-- UQ capabilities: 99.7% confidence intervals with second-order Sobol analysis
-- Digital twin fidelity: R²_enhanced ≥ 0.995 with multi-domain assessment
+**Key Specifications (reported / observed in tests):**
+- Vacuum performance: reported vacuum levels on documented setups near or below ~1×10⁻⁶ Pa (depends on pumping configuration and leak-tightness)
+- Temperature stability: demonstrated stability on tested rigs at the ~±0.01 K level under controlled conditions (sensor placement and compensation networks affect results)
+- Vibration control: achieved sub-nanometer RMS in selected experiments (typical results vary across sites and mounting conditions)
+- Multi-rate control: architecture examples include fast loops (>1 kHz), slow optimization (~10 Hz), and thermal (~0.1 Hz) — implementation-dependent
+- UQ capabilities: prototype second-order Sobol sensitivity and bootstrap intervals are provided; coverage depends on sample size and model fidelity
+- Digital twin fidelity: reported high R² on validation datasets for some cases; fidelity is conditional on model choices and calibration data
 
 ## 1. Theoretical Foundation
 
@@ -94,13 +94,7 @@ Where coupling terms are derived from:
 
 ### 2.2 Advanced Digital Twin Architecture
 
-The integrated digital twin system implements revolutionary mathematical formulations:
-
-1. **Multi-Physics State Evolution**: Cross-domain coupling with validated interactions
-2. **Adaptive UKF Estimation**: Enhanced sigma point optimization with numerical stability
-3. **Enhanced UQ Framework**: Second-order Sobol sensitivity with bootstrap confidence intervals
-4. **Robust Control Synthesis**: H∞ optimization with >50% robustness margins
-5. **Predictive Control**: Probabilistic constraint tightening with 99.7% confidence bounds
+The digital twin architecture used for the work described here leverages advanced estimation and UQ techniques in a research context. The mathematical approaches (UKF/UKF-like filters, Sobol sensitivity, H∞ synthesis) are described with experimental parameterizations used in our studies; their practical guarantees (e.g., robustness margins, confidence bounds) depend on model assumptions, tuning, and validation datasets.
 
 ## 3. Enhanced Digital Twin Implementation
 
@@ -441,26 +435,17 @@ zerodur = MaterialProperties(
 
 ## 10. Conclusion
 
-The Casimir Environmental Enclosure Platform represents a revolutionary advancement in precision environmental control, achieving unprecedented performance through innovative integration of quantum physics, advanced control theory, and comprehensive uncertainty quantification. The enhanced digital twin framework v2.0 provides unparalleled insight into multi-physics system behavior while maintaining real-time performance requirements.
+This repository documents an experimental platform and research investigations into precision environmental control. The results and methods presented illustrate achievable performance in specific, controlled configurations and are intended to support reproducibility, further validation, and informed engineering decisions rather than to assert production-ready guarantees.
 
-**Key Achievements:**
-- Ultra-high vacuum performance (≤10⁻⁶ Pa) with enhanced Casimir pressure modeling
-- Temperature stability (±0.01 K) through multi-material thermal compensation
-- Vibration control (<1 nm RMS) with multi-rate architecture and H∞ optimization
-- Digital twin fidelity (R²_enhanced ≥ 0.995) with multi-domain assessment
-- Enhanced uncertainty quantification with second-order Sobol analysis and 99.7% confidence bounds
-- Robust control synthesis with >50% stability margin enhancement
+**Representative Outcomes (contextualized):**
+- Documented vacuum performance approaches the low-10⁻⁶ Pa range in selected setups; actual achievable vacuum will depend on system conductance, pump selection, and assembly practices.
+- Temperature control around the ±0.01 K level has been demonstrated in lab conditions; stability in deployment environments will vary with sensor layout and thermal coupling.
+- Vibration isolation achieving sub-nanometer RMS was observed in trials; results depend on mounting, payload, and environmental noise.
 
-**Revolutionary Mathematical Formulations:**
-- Physics-based multi-physics coupling matrix with cross-domain interactions
-- Adaptive Unscented Kalman Filter with enhanced numerical stability
-- Enhanced Gelman-Rubin convergence diagnostic with bias correction
-- Advanced H∞ robust control with quantified stability margins
-- Probabilistic model predictive control with constraint tightening
-- Multi-domain digital twin fidelity assessment with temporal correlation
-
-The platform establishes a new paradigm for precision environmental control and provides the foundation for next-generation quantum experiments, Casimir effect research, and ultra-precision manufacturing applications.
+**Scope, Validation & Limitations:**
+- The digital twin, UQ, and control methods are presented as research prototypes. Validation datasets, convergence diagnostics, and scripts used for sensitivity analysis are included in `docs/` and `src/` where available; users should run the provided validation scripts and adapt sampling sizes before extending results to new conditions.
+- Reported confidence bounds and robustness margins are conditional on the stated model assumptions and tuning. For safety-critical or production deployments, perform independent V&V under the intended operating envelope.
 
 ---
 
-*For technical support, detailed implementation guidance, and software documentation, refer to the accompanying code repositories and API documentation.*
+*For implementation guidance and software used in the analyses, see `docs/` and `src/`. Contact the maintainers for questions about reproducing specific validation runs.*
